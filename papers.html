@@ -196,9 +196,10 @@
   }
   .divider-photo::after{ content:''; position:absolute; inset:0; background:rgba(20,16,12,0.18); }
 
-  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .cols{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:32px; }
   @media (max-width:600px){ .cols{ grid-template-columns:1fr; gap:28px; } }
-  address{ font-style:normal; color:#3a3a38; font-size:14.5px; line-height:1.9; }
+  address{ font-style:normal; color:#3a3a38; font-size:13px; line-height:1.85; white-space:nowrap; }
+  @media (max-width:600px){ address{ white-space:normal; } }
 
   footer{
     text-align:center; padding:40px 24px 56px; font-size:12.5px; color:var(--muted); background:var(--band);
@@ -308,13 +309,11 @@
       <div>
         <div class="subhead" style="margin-top:0;">Offices</div>
         <address>
-          Universitas Indonesia<br>
-          Faculty of Mathematics & Natural Sciences<br>
+          Universitas Indonesia, Faculty of Mathematics & Natural Sciences<br>
           Building D, Room D407
         </address>
         <address style="margin-top:14px;">
-          University of Birmingham<br>
-          School of Computer Science<br>
+          University of Birmingham, School of Computer Science<br>
           1st Floor, Room 121
         </address>
       </div>
