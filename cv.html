@@ -556,6 +556,290 @@
     <div class="label">Contact me</div>
     <div class="cols">
       <div>
+        <div class="subhead" style="margin-top:0;">Contact</div>
+        <p>m.imran@sci.ui.ac.id<br>m.imran.2@bham.ac.uk</p>
+        <p><a class="link" href="https://orcid.org/0000-0002-0776-2644" target="_blank" rel="noopener">ORCID 0000-0002-0776-2644</a></p>
+      </div>
+      <div>
+        <div class="subhead" style="margin-top:0;">Offices</div>
+        <address>
+          Universitas Indonesia<br>
+          Faculty of Mathematics & Natural Sciences<br>
+          Building D, Room D407
+        </address>
+        <address style="margin-top:14px;">
+          University of Birmingham<br>
+          School of Computer Science<br>
+          1st Floor, Room 121
+        </address>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Updated July 2026 &middot; Muhammad Imran
+</footer>
+
+<script>
+  const head = document.getElementById('siteHead');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 80) head.classList.add('scrolled');
+    else head.classList.remove('scrolled');
+  });
+
+  const burger = document.getElementById('burgerBtn');
+  const overlay = document.getElementById('navOverlay');
+  function toggleNav(){
+    const isOpen = document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', isOpen);
+  }
+  burger.addEventListener('click', toggleNav);
+  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('nav-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:22px 32px;
+    transition:background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  header.site-head.scrolled{
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(6px);
+    box-shadow:0 1px 0 var(--rule);
+    padding:14px 32px;
+  }
+  .head-name{
+    font-family:'Libre Franklin', sans-serif;
+    font-weight:600; font-size:15px; letter-spacing:0.02em;
+    color:#fff; opacity:0; transform:translateY(-4px);
+    transition:opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    pointer-events:none;
+  }
+  header.site-head.scrolled .head-name{ opacity:1; transform:translateY(0); color:var(--ink); }
+
+  .burger{
+    width:44px; height:44px; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:5px;
+    background:none; border:none; cursor:pointer; z-index:210;
+  }
+  .burger span{ display:block; width:24px; height:2px; background:#fff;
+    transition:transform 0.3s ease, opacity 0.3s ease, background 0.3s ease; }
+  header.site-head.scrolled .burger span{ background:var(--ink); }
+  .nav-open .burger span{ background:#fff !important; }
+  .nav-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-open .burger span:nth-child(2){ opacity:0; }
+  .nav-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .nav-overlay{
+    position:fixed; inset:0; background:#181513; z-index:200;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:opacity 0.35s ease, visibility 0.35s ease;
+  }
+  .nav-open .nav-overlay{ opacity:1; visibility:visible; }
+  .nav-overlay ul{ list-style:none; text-align:center; }
+  .nav-overlay li{ margin:14px 0; }
+  .nav-overlay a{
+    font-family:'Libre Franklin', sans-serif; font-weight:300;
+    font-size:clamp(28px, 5vw, 44px); color:#efe9dd; letter-spacing:0.01em;
+    transition:color 0.2s ease, letter-spacing 0.2s ease;
+  }
+  .nav-overlay a:hover, .nav-overlay a:focus-visible{ color:var(--accent); letter-spacing:0.04em; }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+  .banner{
+    position:relative; height:82vh; min-height:520px;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    background:#0e0e0e; overflow:hidden;
+  }
+  .banner img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 20%;
+    filter:grayscale(35%) contrast(1.05); opacity:0.75;
+  }
+  .banner::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.35) 45%, rgba(10,10,10,0.72) 100%);
+  }
+  .banner-content{ position:relative; z-index:2; color:#fff; padding:0 24px; }
+  .banner h1{
+    font-family:'Libre Franklin', sans-serif; font-weight:300;
+    font-size:clamp(38px, 7vw, 64px); letter-spacing:0.01em;
+    text-shadow:0 2px 24px rgba(0,0,0,0.3);
+  }
+  .banner h1 strong{ font-weight:800; }
+  .banner .tagline{
+    margin-top:14px; font-family:'Libre Franklin', sans-serif;
+    font-size:15px; letter-spacing:0.22em; text-transform:lowercase; color:#e8e2d4;
+  }
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+    z-index:2; color:#e8e2d4; font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .banner-nav{
+    list-style:none; display:flex; flex-wrap:wrap; justify-content:center;
+    gap:14px; margin-top:34px;
+  }
+  .banner-nav a{
+    font-family:'Libre Franklin', sans-serif; font-weight:500; font-size:12.5px;
+    letter-spacing:0.06em; text-transform:uppercase; color:#f2ede0;
+    border:1px solid rgba(242,237,224,0.45); padding:10px 20px; border-radius:2px;
+    transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    display:inline-block;
+  }
+  .banner-nav a.current{ background:#f2ede0; color:#181513; border-color:#f2ede0; }
+  .banner-nav a:hover, .banner-nav a:focus-visible{
+    background:#f2ede0; color:#181513; border-color:#f2ede0;
+  }
+  @media (max-width:560px){
+    .banner-nav{ gap:10px; }
+    .banner-nav a{ padding:8px 14px; font-size:11.5px; }
+  }
+  .scroll-cue::after{
+    content:''; width:1px; height:28px; background:rgba(255,255,255,0.5);
+    animation:cue 1.8s ease-in-out infinite;
+  }
+  @keyframes cue{ 0%,100%{ transform:scaleY(0.4); opacity:0.4;} 50%{ transform:scaleY(1); opacity:1;} }
+
+  main{ max-width:900px; margin:0 auto; padding:0 28px; }
+
+  section{ padding:76px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  @media (max-width:640px){ section{ padding:56px 0; } }
+
+  .label{
+    font-family:'Libre Franklin', sans-serif; font-weight:600; font-size:12px;
+    letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:22px;
+  }
+  h2.block-title{
+    font-family:'Libre Franklin', sans-serif; font-weight:300;
+    font-size:clamp(24px,3.4vw,30px); margin-bottom:18px;
+  }
+  p{ color:#3a3a38; margin-bottom:14px; max-width:620px; }
+  a.link{ color:var(--accent); border-bottom:1px solid rgba(154,83,48,0.35); }
+  a.link:hover{ border-bottom-color:var(--accent); }
+
+  ul.plain{ list-style:none; }
+  ul.plain li{
+    padding:10px 0; border-top:1px solid var(--rule); font-size:15px; color:#3a3a38;
+    display:grid; grid-template-columns:96px 1fr; gap:16px;
+  }
+  ul.plain li:first-child{ border-top:none; }
+  @media (max-width:560px){ ul.plain li{ grid-template-columns:1fr; gap:2px; } }
+  ul.plain li .yr{ color:var(--accent); font-weight:600; }
+  ul.plain li b{ color:var(--ink); }
+  ul.plain li .sub{ display:block; color:var(--muted); font-size:13.5px; margin-top:2px; }
+
+  .subhead{
+    font-family:'Libre Franklin', sans-serif; font-weight:600; font-size:13px;
+    letter-spacing:0.06em; text-transform:uppercase; color:var(--ink); margin:34px 0 12px;
+  }
+  .subhead:first-of-type{ margin-top:6px; }
+
+  .divider-photo{ position:relative; height:280px; overflow:hidden; }
+  .divider-photo img{
+    width:100%; height:100%; object-fit:cover; object-position:center 30%;
+    filter:grayscale(45%) sepia(6%);
+  }
+  .divider-photo::after{ content:''; position:absolute; inset:0; background:rgba(20,16,12,0.18); }
+
+  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  @media (max-width:600px){ .cols{ grid-template-columns:1fr; gap:28px; } }
+  address{ font-style:normal; color:#3a3a38; font-size:14.5px; line-height:1.9; }
+
+  footer{
+    text-align:center; padding:40px 24px 56px; font-size:12.5px; color:var(--muted); background:var(--band);
+  }
+  footer a{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="site-head" id="siteHead">
+  <span class="head-name">Muhammad Imran</span>
+  <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="nav-overlay" id="navOverlay">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">Curriculum vitae</a></li>
+      <li><a href="papers.html">Papers & talks</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div class="banner" id="home">
+  <img src="https://sites.google.com/sitesv-images-rt/ACHe0d2CZEGwxTnM3t1YJeTc9ExgmduUxYjXSNIohrIRLdC2WQ2niPzbZKB8UrB5i28vSzqVBPVsI6r3afZiG9M7R0L5254isEScGg_V7cDpc_h8c76Bm_4ebEALTPWQbivcd1vkegX4VccQHurp6JXmyaiiqSmnHwIvD0hYzZCEYC41z6pPgHYo-fh5iUgdKUCfqRn_nZHSm54-DxmN7_n25XZ9hok6Vk_gAQaLF3IiPv0=w1280" alt="Muhammad Imran">
+  <div class="banner-content">
+    <h1>Muhammad <strong>Imran</strong></h1>
+    <div class="tagline">mathematics &amp; quantum cryptography</div>
+    <ul class="banner-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html" class="current">Curriculum Vitae</a></li>
+      <li><a href="papers.html">Papers &amp; Talks</a></li>
+      <li><a href="#contact">Contacts</a></li>
+    </ul>
+  </div>
+  <div class="scroll-cue">scroll</div>
+</div>
+
+<main>
+  <section id="cv">
+    <div class="label">Curriculum vitae</div>
+    <h2 class="block-title">Experiences &amp; education</h2>
+
+    <div class="subhead">Experiences</div>
+    <ul class="plain">
+      <li><span class="yr">2025—</span><span><b>Postdoctoral Research Fellow</b><span class="sub">University of Birmingham, UK</span></span></li>
+      <li><span class="yr">2025—</span><span><b>Assistant Professor (Lektor)</b><span class="sub">Universitas Indonesia — algebra & cryptography courses</span></span></li>
+      <li><span class="yr">2024—25</span><span><b>Teaching Staff</b><span class="sub">Universitas Indonesia</span></span></li>
+      <li><span class="yr">2021—24</span><span><b>Teaching Fellow</b><span class="sub">Budapest University of Technology & Economics, Hungary — taught Mathematics M1, Introduction to Algebra 1 & 2, Informatics 2</span></span></li>
+    </ul>
+
+    <div class="subhead">Education</div>
+    <ul class="plain">
+      <li><span class="yr">2020—25</span><span><b>Ph.D. in Mathematics</b><span class="sub">Budapest University of Technology and Economics · Thesis: "The Hidden Subgroup Problem and Quantum Cryptanalysis" · Supervisor: Gábor Ivanyos</span></span></li>
+      <li><span class="yr">2017—19</span><span><b>M.Sc. in Mathematics</b><span class="sub">Leiden University, the Netherlands · Thesis: "Gröbner bases for decoding linear codes" · Advisor: Bas Edixhoven</span></span></li>
+      <li><span class="yr">2012—16</span><span><b>B.Sc. in Mathematics</b><span class="sub">Hasanuddin University, Indonesia</span></span></li>
+    </ul>
+
+    <div class="subhead">Honours &amp; awards</div>
+    <ul class="plain">
+      <li><span class="yr">2026</span><span>Travel Grant for ICM 2026, Philadelphia, PA, USA</span></li>
+      <li><span class="yr">2026</span><span>Okinawa Institute of Science and Technology (OIST) Visiting Program, Okinawa, Japan</span></li>
+      <li><span class="yr">2025—27</span><span>EPSRC Fellowship, UK Research and Innovation, University of Birmingham</span></li>
+      <li><span class="yr">2022</span><span>CIMPA Summer School on Applied Arithmetic, Nesin Math Village, Turkey</span></li>
+      <li><span class="yr">2020—24</span><span>Stipendium Hungaricum Scholarship, Ph.D. Program, Budapest University of Technology and Economics</span></li>
+      <li><span class="yr">2020</span><span>CIMPA Research School on Group Actions in Arithmetic & Geometry, Gadjah Mada University, Indonesia</span></li>
+      <li><span class="yr">2017—19</span><span>LPDP Scholarship, Master Program, Leiden University, the Netherlands</span></li>
+      <li><span class="yr">2015</span><span>SEAM School on Coding Theory and Its Applications, Hasanuddin University, Indonesia</span></li>
+      <li><span class="yr">2014—16</span><span>Rumah Kepemimpinan Scholarship, Leadership Training</span></li>
+      <li><span class="yr">2012—16</span><span>Bidikmisi Scholarship, Bachelor Program, Hasanuddin University, Indonesia</span></li>
+    </ul>
+  </section>
+</main>
+
+<div class="divider-photo">
+  <img src="https://sites.google.com/sitesv-images-rt/ACHe0d2CZEGwxTnM3t1YJeTc9ExgmduUxYjXSNIohrIRLdC2WQ2niPzbZKB8UrB5i28vSzqVBPVsI6r3afZiG9M7R0L5254isEScGg_V7cDpc_h8c76Bm_4ebEALTPWQbivcd1vkegX4VccQHurp6JXmyaiiqSmnHwIvD0hYzZCEYC41z6pPgHYo-fh5iUgdKUCfqRn_nZHSm54-DxmN7_n25XZ9hok6Vk_gAQaLF3IiPv0=w1280" alt="">
+</div>
+
+<main>
+  <section id="contact">
+    <div class="label">Contact me</div>
+    <div class="cols">
+      <div>
         <p>m.imran@sci.ui.ac.id<br>m.imran.2@bham.ac.uk</p>
         <p><a class="link" href="https://orcid.org/0000-0002-0776-2644" target="_blank" rel="noopener">ORCID 0000-0002-0776-2644</a></p>
       </div>
