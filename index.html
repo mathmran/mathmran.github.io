@@ -217,9 +217,10 @@
   }
   .divider-photo::after{ content:''; position:absolute; inset:0; background:rgba(20,16,12,0.18); }
 
-  .cols{ display:grid; grid-template-columns:1fr 1fr; gap:40px; }
+  .cols{ display:grid; grid-template-columns:0.8fr 1.2fr; gap:32px; }
   @media (max-width:600px){ .cols{ grid-template-columns:1fr; gap:28px; } }
-  address{ font-style:normal; color:#3a3a38; font-size:14.5px; line-height:1.9; }
+  address{ font-style:normal; color:#3a3a38; font-size:13px; line-height:1.85; white-space:nowrap; }
+  @media (max-width:600px){ address{ white-space:normal; } }
 
   footer{
     text-align:center; padding:40px 24px 56px; font-size:12.5px; color:var(--muted); background:var(--band);
@@ -251,7 +252,7 @@
   <img src="https://sites.google.com/sitesv-images-rt/ACHe0d2CZEGwxTnM3t1YJeTc9ExgmduUxYjXSNIohrIRLdC2WQ2niPzbZKB8UrB5i28vSzqVBPVsI6r3afZiG9M7R0L5254isEScGg_V7cDpc_h8c76Bm_4ebEALTPWQbivcd1vkegX4VccQHurp6JXmyaiiqSmnHwIvD0hYzZCEYC41z6pPgHYo-fh5iUgdKUCfqRn_nZHSm54-DxmN7_n25XZ9hok6Vk_gAQaLF3IiPv0=w1280" alt="Muhammad Imran">
   <div class="banner-content">
     <h1>Muhammad <strong>Imran</strong></h1>
-    <div class="tagline">Cryptography &amp; Quantum Algorithms</div>
+    <div class="tagline">mathematics &amp; quantum cryptography</div>
     <ul class="banner-nav">
       <li><a href="index.html" class="current">Home</a></li>
       <li><a href="cv.html">Curriculum Vitae</a></li>
@@ -268,12 +269,12 @@
       <div class="home-col">
         <div class="label">Current positions</div>
         <p class="lead">I am an Assistant Professor in the Department of Mathematics at Universitas Indonesia, and a Postdoctoral Research Fellow at the University of Birmingham, working in <a class="link" href="https://christophe.petit.web.ulb.be" target="_blank" rel="noopener">Christophe Petit</a>'s group.</p>
-        <p>Previously, I was Ph.D. student at the Budapest University of Technology and Economics, supervised by <a class="link" href="https://sztaki.hun-ren.hu/en/organisation/departments/ilab/gabor-ivanyos" target="_blank" rel="noopener">Gábor Ivanyos</a>, and prior to that I completed my MSc in Mathematics at Leiden University.</p>
+        <p>I received my Ph.D. from the Budapest University of Technology and Economics, supervised by <a class="link" href="https://sztaki.hun-ren.hu/en/organisation/departments/ilab/gabor-ivanyos" target="_blank" rel="noopener">Gábor Ivanyos</a>, and prior to that I completed my MSc in Mathematics at Leiden University.</p>
       </div>
 
       <div class="home-col">
         <div class="label">Research interests</div>
-        <p>My research sits at the intersection of algebra, number theory, and theoretical computer science, with a focus on post-quantum cryptography and quantum algorithms for cryptanalysis.</p>
+        <p>My research sits at the intersection of algebra, number theory, and theoretical computer science, with a focus on quantum algorithms for cryptanalysis — the hidden subgroup problem, lattice isomorphism problems, and post-quantum cryptography.</p>
       </div>
 
       <div class="home-col">
@@ -282,8 +283,8 @@
         <ul class="plain compact">
           <li><span class="yr"></span><span><b>Brayen Damara</b><span class="sub">The Shifted Discrete Logarithm Problem on Finite Semigroups as a Basis for Post-Quantum Cryptography Protocols</span></span></li>
           <li><span class="yr"></span><span><b>Muhammad Ferry Husnil</b><span class="sub">On the Classical Hardness of the Semidirect Discrete Logarithm Problem in Finite Groups</span></span></li>
-          <li><span class="yr"></span><span><b>Fritz Adelbertus Sitindaon</b><span class="sub">Lattice Isomorphism Group Action</span></span></li>
-          <li><span class="yr"></span><span><b>Nurshafa Aliya</b><span class="sub">CSR Expansion for cryptanalyzing tropical cryptographic schemes</span></span></li>
+          <li><span class="yr"></span><span><b>Fritz Adelbertus Sitindaon</b><span class="sub">Hawk Signature Protocol</span></span></li>
+          <li><span class="yr"></span><span><b>Nurshafa Aliya</b><span class="sub">Tropical Cryptography</span></span></li>
         </ul>
         <p style="margin-top:14px;">I welcome inquiries from students interested in quantum algorithms, group-theoretic cryptanalysis, or post-quantum signature schemes — get in <a class="link" href="#contact">touch</a>.</p>
       </div>
