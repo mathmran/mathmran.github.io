@@ -186,9 +186,15 @@
   }
   .subhead:first-of-type{ margin-top:6px; }
 
-  .divider-photo{ position:relative; height:280px; overflow:hidden; }
-  .divider-photo img{
-    width:100%; height:100%; object-fit:cover; object-position:center 40%;
+  .divider-photo{
+    position:relative; height:320px; overflow:hidden;
+    background-image:url('bike.png');
+    background-size:cover;
+    background-position:center 40%;
+    background-attachment:fixed;
+  }
+  @media (max-width:768px){
+    .divider-photo{ background-attachment:scroll; }
   }
   .divider-photo::after{ content:''; position:absolute; inset:0; background:rgba(20,16,12,0.18); }
 
@@ -274,9 +280,7 @@
   </section>
 </main>
 
-<div class="divider-photo">
-  <img src="bike.png" alt="A folding bicycle and helmet resting on a lawn in front of a university building">>
-</div>
+<div class="divider-photo" role="img" aria-label="A folding bicycle and helmet resting on a lawn in front of a university building"></div>
 
 <main>
   <section id="contact">
