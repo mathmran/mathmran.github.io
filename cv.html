@@ -33,56 +33,6 @@
   a{ color:inherit; text-decoration:none; }
   ::selection{ background: rgba(154,83,48,0.18); }
 
-  header.site-head{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 32px;
-    transition:background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-  }
-  header.site-head.scrolled{
-    background:rgba(255,255,255,0.94);
-    backdrop-filter:blur(6px);
-    box-shadow:0 1px 0 var(--rule);
-    padding:14px 32px;
-  }
-  .head-name{
-    font-family:'Libre Franklin', sans-serif;
-    font-weight:600; font-size:15px; letter-spacing:0.02em;
-    color:#fff; opacity:0; transform:translateY(-4px);
-    transition:opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
-    pointer-events:none;
-  }
-  header.site-head.scrolled .head-name{ opacity:1; transform:translateY(0); color:var(--ink); }
-
-  .burger{
-    width:44px; height:44px; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; gap:5px;
-    background:none; border:none; cursor:pointer; z-index:210;
-  }
-  .burger span{ display:block; width:24px; height:2px; background:#fff;
-    transition:transform 0.3s ease, opacity 0.3s ease, background 0.3s ease; }
-  header.site-head.scrolled .burger span{ background:var(--ink); }
-  .nav-open .burger span{ background:#fff !important; }
-  .nav-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .nav-open .burger span:nth-child(2){ opacity:0; }
-  .nav-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-  .nav-overlay{
-    position:fixed; inset:0; background:#181513; z-index:200;
-    display:flex; align-items:center; justify-content:center;
-    opacity:0; visibility:hidden;
-    transition:opacity 0.35s ease, visibility 0.35s ease;
-  }
-  .nav-open .nav-overlay{ opacity:1; visibility:visible; }
-  .nav-overlay ul{ list-style:none; text-align:center; }
-  .nav-overlay li{ margin:14px 0; }
-  .nav-overlay a{
-    font-family:'Libre Franklin', sans-serif; font-weight:300;
-    font-size:clamp(28px, 5vw, 44px); color:#efe9dd; letter-spacing:0.01em;
-    transition:color 0.2s ease, letter-spacing 0.2s ease;
-  }
-  .nav-overlay a:hover, .nav-overlay a:focus-visible{ color:var(--accent); letter-spacing:0.04em; }
-
   a:focus-visible, button:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 
   .banner{
@@ -211,24 +161,6 @@
 </head>
 <body>
 
-<header class="site-head" id="siteHead">
-  <span class="head-name">Muhammad Imran</span>
-  <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-
-<div class="nav-overlay" id="navOverlay">
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="cv.html">Curriculum vitae</a></li>
-      <li><a href="papers.html">Papers & talks</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</div>
-
 <div class="banner" id="home">
   <img src="quantcomp.png" alt="A dilution refrigerator used in quantum computing research">
   <div class="banner-content">
@@ -309,26 +241,6 @@
 <footer>
   Updated July 2026 &middot; Muhammad Imran
 </footer>
-
-<script>
-  const head = document.getElementById('siteHead');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 80) head.classList.add('scrolled');
-    else head.classList.remove('scrolled');
-  });
-
-  const burger = document.getElementById('burgerBtn');
-  const overlay = document.getElementById('navOverlay');
-  function toggleNav(){
-    const isOpen = document.body.classList.toggle('nav-open');
-    burger.setAttribute('aria-expanded', isOpen);
-  }
-  burger.addEventListener('click', toggleNav);
-  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    document.body.classList.remove('nav-open');
-    burger.setAttribute('aria-expanded', 'false');
-  }));
-</script>
 
 </body>
 </html>
